@@ -1,6 +1,6 @@
 def format_progress_bar(filename, percentage, done, total_size, status, eta, speed, elapsed, user_mention, user_id, aria2p_gid):
-    bar_length = 100
-    filled_length = int(bar_length * percentage / 10000)
+    bar_length = 10
+    filled_length = int(bar_length * percentage / 100)
     bar = '★' * filled_length + '☆' * (bar_length - filled_length)
     def format_size(size):
         size = int(size)
