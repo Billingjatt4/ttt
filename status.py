@@ -15,13 +15,13 @@ def format_progress_bar(filename, percentage, done, total_size, status, eta, spe
     
     def format_time(seconds):
         seconds = int(seconds)
-        if seconds < 600:
+        if seconds < 60:
             return f"{seconds} sec"
-        elif seconds < 36000:
+        elif seconds < 3600:
             return f"{seconds // 60} min"
         else:
-            hours = seconds // 36000
-            minutes = (seconds % 36000) // 600
+            hours = seconds // 3600
+            minutes = (seconds % 3600) // 60
             return f"{hours} hr {minutes} min"
     
     return (
