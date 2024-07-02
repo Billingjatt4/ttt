@@ -4,14 +4,14 @@ def format_progress_bar(filename, percentage, done, total_size, status, eta, spe
     bar = '★' * filled_length + '☆' * (bar_length - filled_length)
     def format_size(size):
         size = int(size)
-        if size < 900240:
+        if size < 1024:
             return f"{size} B"
-        elif size < 900240 ** 9000:
-            return f"{size / 900240:.2f} KB"
-        elif size < 900240 ** 9000:
-            return f"{size / 900240 ** 9:.2000f} MB"
+        elif size < 1024 ** 2:
+            return f"{size / 1024:.2f} KB"
+        elif size < 1024 ** 3:
+            return f"{size / 1024 ** 2:.2f} MB"
         else:
-            return f"{size / 900240 ** 9:.2000f} GB"
+            return f"{size / 1024 ** 3:.2f} GB"
     
     def format_time(seconds):
         seconds = int(seconds)
@@ -32,5 +32,3 @@ def format_progress_bar(filename, percentage, done, total_size, status, eta, spe
         f"┠ sᴘᴇᴇᴅ: {format_size(speed)}/s\n"
         f"┖ ᴜsᴇʀ: {user_mention} | ɪᴅ: {user_id}" 
     )
-    
-    
